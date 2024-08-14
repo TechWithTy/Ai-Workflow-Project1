@@ -1,0 +1,42 @@
+{
+  "name": "@craftgen/db",
+  "version": "0.1.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pnpm with-env supabase start",
+    "stop": "pnpm with-env supabase stop",
+    "generate": "pnpm run drizzle:generate ",
+    "drizzle:generate": "drizzle-kit generate:pg",
+    "drop": "drizzle-kit drop",
+    "introspect": "drizzle-kit introspect:pg",
+    "introspect:prod": "pnpm with-env:prod drizzle-kit introspect:pg",
+    "supa:generate": "pnpm with-env supabase gen types typescript --local > db/database.types.ts",
+    "studio": "drizzle-kit studio",
+    "migrate": "pnpm with-env tsx ./db/migration.ts && pnpm run supa:generate",
+    "migrate:prod": "pnpm with-env:prod tsx ./db/migration.ts && pnpm run supa:generate",
+    "with-env": "dotenv -e ../.env --",
+    "with-env:prod": "dotenv -e ../.env.prod --"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@types/pg": "^8.10.2",
+    "drizzle-orm": "^0.29.3",
+    "drizzle-zod": "^0.5.1",
+    "jose": "^4.14.4",
+    "pg": "^8.11.3",
+    "postgres": "^3.3.5",
+    "zod": "3.21.4"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.39.7",
+    "@types/node": "^20.4.10",
+    "dotenv-cli": "^7.2.1",
+    "drizzle-kit": "^0.20.14",
+    "tsx": "^3.12.7",
+    "typescript": "^5.4.5"
+  }
+}

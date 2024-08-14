@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "scripts": {
+    "start:admin": "turbo run start --scope=@craftgen/admin",
+    "pr": "turbo run start --filter=@craftgen/auto-pr",
+    "build": "turbo run build",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo clean",
+    "postinstall": "manypkg check",
+    "dev": "turbo run dev",
+    "format": "turbo run format --continue -- --cache --cache-location node_modules/.cache/.prettiercache",
+    "format:fix": "turbo run format --continue -- --write --cache --cache-location node_modules/.cache/.prettiercache",
+    "lint": "turbo run lint --continue -- --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
+    "typecheck": "turbo typecheck",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@acme/prettier-config": "workspace:*",
+    "@changesets/cli": "^2.27.6",
+    "@manypkg/cli": "^0.21.0",
+    "@turbo/gen": "^2.0.3",
+    "eslint": "^8.52.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
+    "prettier": "^3.0.3",
+    "turbo": "^2.0.3",
+    "typescript": "^5.4.5"
+  },
+  "packageManager": "pnpm@8.10.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "name": "noktastudio",
+  "prettier": "@acme/prettier-config"
+}

@@ -1,0 +1,30 @@
+{
+  "extends": "@acme/tsconfig/base.json",
+  "compilerOptions": {
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      },
+      {
+        "name": "@0no-co/graphqlsp",
+        "schema": "https://craftgen-5a67c0.ingress-daribow.ewp.live/graphql",
+        "tadaOutputLocation": "./src/wordpress-graphql.d.ts"
+      }
+    ],
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "module": "esnext"
+  },
+  "include": [
+    ".",
+    ".next/types/**/*.ts",
+    "../../packages/ui/src/views/workflow-list.tsx",
+    "../../packages/ui/src/views/project-list.tsx"
+  ],
+  "exclude": ["node_modules"]
+}

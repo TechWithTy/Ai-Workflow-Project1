@@ -1,0 +1,65 @@
+{
+  "productName": "CraftGen",
+  "version": "../package.json",
+  "identifier": "com.craftgen.ai",
+  "build": {
+    "beforeDevCommand": "pnpm dev ",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "visible": false,
+        "title": "craftgen",
+        "width": 1200,
+        "height": 800,
+        "minHeight": 400,
+        "minWidth": 600,
+        "decorations": true
+      }
+    ],
+    "security": {
+      "csp": null
+    },
+    "trayIcon": {
+      "iconPath": "icons/128.png",
+      "iconAsTemplate": true,
+      "tooltip": "Craftgen"
+    }
+  },
+  "bundle": {
+    "publisher": "Craftgen AI",
+    "copyright": "Craftgen AI",
+    "shortDescription": "Craftgen AI Agent Building Platform",
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32.png",
+      "icons/72.png",
+      "icons/128.png",
+      "icons/256.png",
+      "icons/512.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": [
+      "functions/*"
+    ],
+    "externalBin": [
+      "binaries/edge-runtime"
+    ]
+  },
+  "plugins": {
+    "updater": {
+      "active": true,
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEJCNjEyMzI0RUEwMTU3RDkKUldUWlZ3SHFKQ05odTl5SmpvR2hJWFUwdnBYSXJvazBTTVc5cXM1VUM3ZDl0RENnZXIySklyODYK",
+      "endpoints": [
+        "https://github.com/craftgen/craftgen/releases/latest/download/latest.json"
+      ]
+    }
+  }
+}

@@ -1,0 +1,653 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 72.22% 50.59%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5% 64.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background font-sans text-foreground;
+
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+  p {
+    @apply font-sans;
+  }
+
+  kbd {
+    font-size: inherit;
+  }
+
+  [data-slate-editor] {
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      Segoe UI,
+      Roboto,
+      Helvetica Neue,
+      Arial,
+      Noto Sans,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      Segoe UI Symbol,
+      "Noto Color Emoji";
+  }
+
+  .slate-selection-area {
+    background: #4f90f22d;
+    border: 1px solid #4f90f2;
+  }
+  .glass {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    /* border-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+@layer utilities {
+  .step {
+    counter-increment: step;
+  }
+
+  .step:before {
+    @apply absolute inline-flex h-9 w-9 items-center justify-center rounded-full border-4 border-background bg-muted text-center -indent-px font-mono text-base font-medium;
+    @apply ml-[-50px] mt-[-4px];
+    content: counter(step);
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+}
+
+@layer components {
+  .join-waitlist-button {
+    background: linear-gradient(
+        180deg,
+        rgba(104, 9, 229, 0) 0%,
+        rgba(60, 8, 126, 0.32) 100%
+      ),
+      rgba(40, 5, 117, 0.12);
+    box-shadow: inset 0 0 12px #bf97ff3d;
+  }
+}
+
+.shadow-super {
+  @apply shadow-[5px_5px_30px_rgba(190,190,190,0.15),-5px_-5px_30px_rgba(255,255,255,0.15)];
+}
+
+@layer components {
+  /* links */
+  .editor-styles-wrapper
+    a:not(.wp-block-button__link):not(.wp-block-navigation-item__content):not(
+      .wp-block-social-link-anchor
+    ):not(.wp-block-table-of-contents__entry),
+  .wp-site-blocks
+    a:not(.wp-block-button__link):not(.wp-block-navigation-item__content):not(
+      .wp-block-social-link-anchor
+    ):not(.wp-block-table-of-contents__entry) {
+    @apply text-accent no-underline;
+  }
+  .editor-styles-wrapper
+    a:not(.wp-block-button__link):not(.wp-block-navigation-item__content):not(
+      .wp-block-social-link-anchor
+    ):hover,
+  .wp-site-blocks
+    a:not(.wp-block-button__link):not(.wp-block-navigation-item__content):not(
+      .wp-block-social-link-anchor
+    ):hover {
+    @apply text-accent underline;
+  }
+
+  /* buttons */
+  button:not(.components-button),
+  .wp-site-blocks:not(.is-root-container) button {
+  }
+
+  /* CORE BLOCKS */
+
+  /* headings */
+  h1.wp-block-heading,
+  h1.wp-block-post-title.editor-post-title,
+  .wp-site-blocks h1,
+  h2.wp-block-heading,
+  .wp-site-blocks h2,
+  h3.wp-block-heading,
+  .wp-site-blocks h3,
+  h4.wp-block-heading,
+  .wp-site-blocks h4,
+  h5.wp-block-heading,
+  .wp-site-blocks h5,
+  h6.wp-block-heading,
+  .wp-site-blocks h6,
+  h1.wp-block-post-title,
+  h2.wp-block-post-title,
+  h3.wp-block-post-title,
+  h4.wp-block-post-title,
+  h5.wp-block-post-title,
+  h6.wp-block-post-title {
+    @apply font-mono text-primary dark:text-secondary;
+  }
+
+  /* Until I find a better way, need this to account for text in dark sections that remain dark after toggling dark mode off */
+  /* The reason for this issue is that I haven't found a way to style these tags on the frontend without using the .wp-site-blocks selector. If I don't use it, it styles all h tags in the backend outside of the editor as well... */
+  .wp-site-blocks .dark h1 {
+    @apply bg-gradient-to-b from-secondary via-secondary to-accent bg-clip-text text-transparent;
+  }
+  .wp-site-blocks .dark h2,
+  .wp-site-blocks .dark h4,
+  .wp-site-blocks .dark h5,
+  .wp-site-blocks .dark h6 {
+    @apply text-secondary;
+  }
+
+  /* page & post titles */
+  h1.wp-block-post-title.editor-post-title {
+    @apply font-extrabold;
+  }
+
+  /* h1 */
+  h1.wp-block-heading,
+  .wp-site-blocks h1,
+  h1.wp-block-post-title:not(.editor-post-title) {
+    @apply pb-2 text-7xl font-extrabold leading-none tracking-tight dark:bg-gradient-to-b dark:from-secondary dark:via-secondary dark:to-accent dark:bg-clip-text dark:text-transparent sm:text-4xl;
+  }
+
+  /* h2 */
+  h2.wp-block-heading,
+  .wp-site-blocks h2 {
+    @apply text-4xl font-extrabold leading-tight tracking-tight;
+  }
+
+  /* h3 */
+  h3.wp-block-heading,
+  .wp-site-blocks h3 {
+    @apply text-lg;
+  }
+
+  /* h4 */
+  h4.wp-block-heading,
+  .wp-site-blocks h4 {
+    @apply text-lg;
+  }
+
+  /* h5 */
+  h5.wp-block-heading,
+  .wp-site-blocks h5 {
+    @apply text-base;
+  }
+
+  /* h6 */
+  h6.wp-block-heading,
+  .wp-site-blocks h6 {
+    @apply text-sm;
+  }
+
+  /* paragraph block */
+  p.wp-block-paragraph,
+  .wp-site-blocks p {
+  }
+
+  /* image block */
+  .wp-block-image {
+    @apply rounded-2xl shadow-2xl shadow-accent/30 dark:shadow-accent;
+  }
+  .wp-block-image img {
+    @apply rounded-2xl border border-neutral-100 shadow-lg shadow-primary/10 dark:border-neutral-800 dark:shadow-primary;
+  }
+  .single-pattern .wp-block-image,
+  .post-type-pattern .wp-block-image {
+    @apply shadow-none;
+  }
+  .single-pattern .wp-block-image img,
+  .post-type-pattern .wp-block-image img {
+    @apply border-0 shadow-none;
+  }
+
+  /* gallery block */
+  .wp-block-gallery {
+  }
+
+  /* list block */
+  .wp-block-list {
+  }
+
+  /* quote block */
+  .wp-block-quote {
+  }
+
+  /* archives block */
+  .wp-block-archives {
+  }
+
+  /* audio block */
+  .wp-block-audio {
+  }
+
+  /* button block */
+  .wp-block-button {
+    @apply font-accent shadow-inset rounded-lg bg-accent hover:bg-opacity-90;
+  }
+  .wp-block-button__link {
+    @apply bg-transparent px-5 py-3 font-bold !important;
+  }
+  .is-style-outline.wp-block-button {
+    @apply bg-transparent shadow-none hover:shadow-2xl hover:shadow-accent/30 dark:text-secondary dark:hover:shadow-accent [&>*:hover]:ring-1 [&>*:hover]:ring-accent [&>*:hover]:dark:ring-1 [&>*:hover]:dark:ring-accent [&>*]:rounded-lg [&>*]:border-0 [&>*]:ring-1 [&>*]:ring-neutral-200 [&>*]:hover:shadow-lg [&>*]:hover:shadow-primary/10 [&>*]:dark:border-neutral-800 [&>*]:dark:ring-1 [&>*]:dark:ring-neutral-800 [&>*]:dark:hover:shadow-lg [&>*]:dark:hover:shadow-primary;
+  }
+  .is-style-outline .wp-block-button__link {
+    @apply text-text border-0 shadow-none hover:shadow-lg hover:shadow-primary/10 dark:text-secondary dark:hover:shadow-primary !important;
+  }
+
+  /* buttons block */
+  .wp-block-buttons {
+  }
+
+  /* calendar block */
+  .wp-block-calendar {
+  }
+
+  /* categories block */
+  .wp-block-categories {
+  }
+
+  /* freeform block */
+  .wp-block-freeform {
+  }
+
+  /* code block */
+  .wp-block-code {
+    @apply text-text my-12 rounded-2xl border border-neutral-200 bg-neutral-100 p-6 dark:border-neutral-700 dark:bg-neutral-800;
+  }
+
+  /* column block */
+  .wp-block-column {
+  }
+  .wp-block-column > :first-child {
+    @apply mt-0;
+  }
+  .wp-block-column > :last-child {
+    @apply mb-0;
+  }
+
+  /* columns block */
+  .wp-block-columns {
+    @apply gap-x-6;
+  }
+
+  /* cover block */
+  .wp-block-cover {
+  }
+
+  /* embed block */
+  .wp-block-embed {
+  }
+
+  /* file block */
+  .wp-block-file {
+  }
+
+  /* group block */
+  .wp-block-group {
+  }
+
+  /* html block */
+  .wp-block-html {
+  }
+
+  /* latest comments block */
+  .wp-block-latest-comments {
+  }
+
+  /* latest posts block */
+  .wp-block-latest-posts {
+  }
+
+  /* media text block */
+  .wp-block-media-text {
+  }
+
+  /* missing block */
+  .wp-block-missing {
+  }
+
+  /* more block */
+  .wp-block-more {
+  }
+
+  /* nextpage block */
+  .wp-block-nextpage {
+  }
+
+  /* page list block */
+  .wp-block-page-list {
+  }
+
+  /* pattern block */
+  .wp-block-pattern {
+  }
+
+  /* preformatted block */
+  .wp-block-preformatted {
+  }
+
+  /* pullquote block */
+  .wp-block-pullquote {
+  }
+
+  /* block block */
+  .wp-block {
+  }
+
+  /* rss block */
+  .wp-block-rss {
+  }
+
+  /* search block */
+  .wp-block-search {
+  }
+
+  /* separator block */
+  .wp-block-separator {
+  }
+
+  /* shortcode block */
+  .wp-block-shortcode {
+  }
+
+  /* social link block */
+  .wp-block-social-link {
+  }
+
+  /* social links block */
+  .wp-block-social-links {
+  }
+
+  /* spacer block */
+  .wp-block-spacer {
+  }
+
+  /* table block */
+  .wp-block-table {
+    @apply m-0 border-collapse;
+  }
+  .wp-block-table td {
+    @apply border-0;
+  }
+  .wp-block-table tr {
+    @apply border-t border-neutral-200 dark:border-neutral-800;
+  }
+  .wp-block-table tr:last-child {
+    @apply border-b border-neutral-200 dark:border-neutral-800;
+  }
+
+  /* table of contents block */
+  .wp-block-table-of-contents {
+    @apply [&_a]:text-text [&_a:hover]:translate-x-2 [&_a:hover]:text-primary [&_a:hover]:dark:text-secondary [&_a]:inline-flex [&_a]:whitespace-normal [&_a]:text-sm [&_a]:no-underline [&_a]:transition-transform [&_li>a]:no-underline [&_li]:space-y-2 [&_ol:first-child]:pl-0 [&_ol]:my-0 [&_ol]:list-none [&_ol]:space-y-2 [&_ol]:pl-4;
+  }
+
+  /* tag cloud block */
+  .wp-block-tag-cloud {
+  }
+
+  /* text columns block */
+  .wp-block-text-columns {
+  }
+
+  /* verse block */
+  .wp-block-verse {
+  }
+
+  /* video block */
+  .wp-block-video {
+  }
+
+  /* navigation block */
+  .wp-block-navigation {
+  }
+
+  /* navigation link block */
+  .wp-block-navigation-link a {
+  }
+
+  /* navigation block item label */
+  .wp-block-navigation-item__label {
+    @apply whitespace-nowrap;
+  }
+
+  /* navigation submenu block */
+  .wp-block-navigation-submenu {
+  }
+
+  /* site logo block */
+  .wp-site-logo {
+  }
+
+  /* site title block */
+  .wp-site-title {
+  }
+
+  /* site tagline block */
+  .wp-site-tagline {
+  }
+
+  /* query block */
+  .wp-block-query {
+  }
+
+  /* template part block */
+  .wp-block-template-part {
+  }
+
+  /* post title block */
+  .wp-block-post-title {
+  }
+
+  /* post excerpt block */
+  .wp-block-post-excerpt {
+  }
+
+  /* post featured-image block */
+  .wp-block-post-featured-image img {
+    @apply rounded-2xl;
+  }
+
+  /* post content block */
+  .wp-block-post-content {
+  }
+
+  /* post author block */
+  .wp-block-post-author {
+  }
+
+  /* post date block */
+  .wp-block-post-date {
+  }
+
+  /* post terms block */
+  .wp-block-post-terms {
+  }
+
+  /* post navigation-link block */
+  .wp-block-post-navigation-link {
+  }
+
+  /* post template block */
+  .wp-block-post-template {
+  }
+
+  /* query pagination block */
+  .wp-block-query-pagination {
+  }
+
+  /* query pagination-next block */
+  .wp-block-query-pagination-next {
+  }
+
+  /* query pagination-numbers block */
+  .wp-block-query-pagination-numbers {
+  }
+
+  /* query pagination-previous block */
+  .wp-block-query-pagination-previous {
+  }
+
+  /* post comments block */
+  .wp-block-post-comments {
+  }
+
+  /* loginout block */
+  .wp-block-loginout {
+  }
+
+  /* term description block */
+  .wp-block-term-description {
+  }
+
+  /* query title block */
+  .wp-block-query-title {
+  }
+
+  /* post author-name block */
+  .wp-block-post-author-name {
+  }
+
+  /* post author-biography block */
+  .wp-block-post-author-biography {
+  }
+
+  /* home link block */
+  .wp-block-home-link {
+  }
+
+  /* comment author-avatar block */
+  .wp-block-comment-author-avatar {
+  }
+
+  /* comment author-name block */
+  .wp-block-comment-author-name {
+  }
+
+  /* comment content block */
+  .wp-block-comment-content {
+  }
+
+  /* comment date block */
+  .wp-block-comment-date {
+  }
+
+  /* comment edit-link block */
+  .wp-block-comment-edit-link {
+  }
+
+  /* comment reply-link block */
+  .wp-block-comment-reply-link {
+  }
+
+  /* comment template block */
+  .wp-block-comment-template {
+  }
+
+  /* comments query-loop block */
+  .wp-block-comments-query-loop {
+  }
+
+  /* comments pagination block */
+  .wp-block-comments-pagination {
+  }
+
+  /* comments pagination-next block */
+  .wp-block-comments-pagination-next {
+  }
+
+  /* comments pagination-numbers block */
+  .wp-block-comments-pagination-numbers {
+  }
+
+  /* comments pagination-previous block */
+  .wp-block-comments-pagination-previous {
+  }
+
+  /* navigation area block */
+  .wp-block-navigation-area {
+  }
+
+  /* post comment block */
+  .wp-block-post-comment {
+  }
+
+  /* post comments-count block */
+  .wp-block-post-comments-count {
+  }
+
+  /* post comments-form block */
+  .wp-block-post-comments-form {
+  }
+
+  /* post comments-link block */
+  .wp-block-post-comments-link {
+  }
+
+  /* read more block */
+  .wp-block-read-more {
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@craftgen/admin",
+  "version": "1.0.0",
+  "description": "admin for craftgen",
+  "scripts": {
+    "dev": "pnpm with-env directus start",
+    "start": "pnpm directus start",
+    "start:prod": "pnpm with-env:prod pnpm directus start",
+    "create-snapshot:backup": "pnpm with-env directus schema snapshot ./snapshots/\"$(date \"+%F\")\"-snapshot-\"$(date \"+%s\")\".yaml",
+    "create-snapshot": "pnpm with-env directus schema snapshot ./snapshots/current.yaml",
+    "create-snapshot:prod": "pnpm with-env:prod directus schema snapshot ./snapshots/current.yaml",
+    "apply-snapshot": "pnpm with-env directus schema apply ./snapshots/current.yaml",
+    "apply-snapshot:prod": "pnpm with-env:prod directus schema apply ./snapshots/current.yaml",
+    "with-env": "dotenv -e ../.env --",
+    "with-env:prod": "dotenv -e ../.env.prod --"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "directus": "^10.10.4",
+    "directus-extension-computed-interface": "^1.9.0",
+    "directus-extension-upsert": "^1.0.5",
+    "directus-extension-wpslug-interface": "^1.1.0",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.2.1"
+  }
+}

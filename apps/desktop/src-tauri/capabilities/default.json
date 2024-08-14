@@ -1,0 +1,90 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": ["main"],
+  "permissions": [
+    "path:default",
+    "event:default",
+    "window:default",
+    "app:default",
+    "image:default",
+    "resources:default",
+    "menu:default",
+    "tray:default",
+    {
+      "identifier": "shell:allow-execute",
+      "allow": [
+        {
+          "args": [
+            "start",
+            "--main-service",
+            {
+              "validator": "\\S+"
+            },
+            "--event-worker",
+            {
+              "validator": "\\S+"
+            }
+          ],
+          "cmd": "echo $APPDATA",
+          "name": "binaries/edge-runtime",
+          "sidecar": true
+        },
+        {
+          "args": [
+            "test",
+            {
+              "validator": "\\S+"
+            },
+            "--reload",
+            "--quiet"
+          ],
+          "cmd": "deno",
+          "name": "deno",
+          "sidecar": false
+        }
+      ]
+    },
+    "shell:allow-open",
+    "autostart:default",
+    "notification:default",
+    "store:default",
+    "fs:default",
+    "log:default",
+    {
+      "identifier": "http:default",
+      "allow": [
+        {
+          "url": "http://localhost:3000/**"
+        },
+        {
+          "url": "http://localhost:54321/**"
+        },
+        {
+          "url": "http://localhost:1234/**"
+        },
+        {
+          "url": "http://localhost:24321/**"
+        },
+        {
+          "url": "https://craftgen.ai/**"
+        },
+        {
+          "url": "https://siwhcblzmpihqdvvooqz.supabase.co/**"
+        }
+      ]
+    },
+    "oauth:allow-start",
+    "oauth:allow-cancel",
+    "updater:default",
+    "dialog:default",
+    "dialog:allow-ask",
+    "dialog:allow-message",
+    "dialog:allow-confirm",
+    "dialog:allow-save",
+    "dialog:allow-open",
+    "process:default",
+    "process:allow-restart"
+  ]
+}
