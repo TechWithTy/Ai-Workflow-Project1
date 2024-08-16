@@ -3,20 +3,20 @@
 
 <h3>
 
-[Homepage](https://craftgen.ai/) | [Examples](https://craftgen.ai/explore) | [Discord](https://craftgen.ai/discord)
+[Homepage](https://aiworkflowbuilder.ai/) | [Examples](https://aiworkflowbuilder.ai/explore) | [Discord](https://aiworkflowbuilder.ai/discord)
 
 </h3>
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/craftgen/craftgen)](https://github.com/craftgen/craftgen)
 <a href="https://github.com/craftgen/craftgen/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-AGPLv3-purple" alt="License"></a>
 <a href="https://github.com/craftgen/craftgen/pulse"><img src="https://img.shields.io/github/commit-activity/m/craftgen/craftgen" alt="Commits-per-month"></a>
-<a href="https://craftgen.ai/pricing"><img src="https://img.shields.io/badge/Pricing-Free-brightgreen" alt="Pricing"></a>
+<a href="https://aiworkflowbuilder.ai/pricing"><img src="https://img.shields.io/badge/Pricing-Free-brightgreen" alt="Pricing"></a>
 <a href="https://github.com/craftgen/craftgen/labels/%F0%9F%99%8B%20help%20wanted"><img src="https://img.shields.io/badge/Help%20Wanted-Contribute-blue"></a>
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=Follow%20%40craftgenai)](https://twitter.com/craftgenai)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=Follow%20%40AiWorkFlowBuilder)](https://twitter.com/AiWorkFlowBuilder)
 
 </div>
 
-Craftgen.ai: Open-source AI agent platform with intuitive workflows, graph-based solutions, agent capabilities, model management, and real-time monitoring for fast prototyping to production. Key features include:
+aiworkflowbuilder.ai: Open-source AI agent platform with intuitive workflows, graph-based solutions, agent capabilities, model management, and real-time monitoring for fast prototyping to production. Key features include:
 
 **1. Workflow**:
 Build and test powerful AI workflows on a visual canvas, leveraging all the following features and beyond.
@@ -31,13 +31,13 @@ You can define agents based on LLM Function Calling or ReAct, and add pre-built 
 
 ## What is CraftGen?
 
-Craftgen.ai is an AI platform designed for both technical and non-technical users. Built on a scalable graph architecture and the Actor Model, it allows users to customize AI components to fit their needs.
+aiworkflowbuilder.ai is an AI platform designed for both technical and non-technical users. Built on a scalable graph architecture and the Actor Model, it allows users to customize AI components to fit their needs.
 
 The platform features an event-driven architecture for reliable data processing and universal access via web technologies. It supports dynamic tool and workflow generation, with offline capabilities for secure environments and plans for desktop integration.
 
-Craftgen.ai uses JSON schema for industry-standard alignment, enabling seamless integration with any API following the OpenAPI spec. This allows for a broad range of applications, from automating data analysis to streamlining content management.
+aiworkflowbuilder.ai uses JSON schema for industry-standard alignment, enabling seamless integration with any API following the OpenAPI spec. This allows for a broad range of applications, from automating data analysis to streamlining content management.
 
-The platform is designed to bridge the gap between advanced AI technology and practical usability. It's a flexible, secure, and intuitive platform that empowers users, from developers seeking to create custom AI solutions to businesses looking to automate routine tasks. Craftgen.ai's goal is to make AI technology an integral, seamless part of everyday problem-solving and innovation, providing a platform where modular AI and a thriving marketplace converge to meet the diverse needs of its users.
+The platform is designed to bridge the gap between advanced AI technology and practical usability. It's a flexible, secure, and intuitive platform that empowers users, from developers seeking to create custom AI solutions to businesses looking to automate routine tasks. aiworkflowbuilder.ai's goal is to make AI technology an integral, seamless part of everyday problem-solving and innovation, providing a platform where modular AI and a thriving marketplace converge to meet the diverse needs of its users.
 
 ## Feature comparison
 
@@ -113,8 +113,8 @@ Star CraftGen on GitHub and be instantly notified of new releases.
 ![](./apps/web/public/images/github-star-dark.gif)
 
 > **Note:**
-> This project is a dynamic work in progress, evolving in the open. Stay updated with our journey on Twitter [@CraftgenAI](https://twitter.com/CraftgenAI).
+> This project is a dynamic work in progress, evolving in the open. Stay updated with our journey on Twitter [@AiWorkFlowBuilder](https://twitter.com/AiWorkFlowBuilder).
 
 ### Stuck? Got Questions? We're Here!
 
-Hit a snag? Pondering how to start? Reach out on [Discord](https://craftgen.ai/discord). We're all ears and ready to assist.
+Hit a snag? Pondering how to start? Reach out on [Discord](https://aiworkflowbuilder.ai/discord). We're all ears and ready to assist.
